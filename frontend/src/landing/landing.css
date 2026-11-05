@@ -1,0 +1,38 @@
+/* Golden Reindeer homepage — shared styles (most layout is inline in index.html) */
+:root {
+  --accent: #B4590B;      /* brand orange (passes contrast with white text) */
+  --ink: #2A1A0E;         /* main text */
+  --muted: #5C4A3A;       /* body text */
+  --cream: #FBF3E6;       /* hero / section background */
+  --paper: #FFFBF5;       /* page background */
+  --line: #EFE4D4;        /* borders */
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); }
+a { color: var(--ink); }
+a:hover { color: #8A4408; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* "Built for" industry chips */
+.chip { font-size: 14px; font-weight: 600; color: #4A3A2C; background: #FFFFFF; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
+
+/* Automation Store cards + switches */
+.auto-card { background: #FFFFFF; border-radius: 20px; padding: 24px; display: flex; gap: 18px; align-items: flex-start; border: 1px solid var(--line); }
+.toggle { flex: none; width: 52px; height: 30px; border-radius: 999px; border: none; padding: 0; cursor: pointer; position: relative; background: #D6CABB; margin-top: 2px; transition: background .2s; }
+.toggle[aria-pressed="true"] { background: var(--accent); }
+.toggle .knob { position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: left .2s; }
+.toggle[aria-pressed="true"] .knob { left: 25px; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; font-family: inherit; font-size: 18px; font-weight: 700; color: var(--ink); text-align: left; }
+.faq-sign { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; color: #8A4408; }
+.faq-a { margin: 0; padding: 0 48px 22px 0; font-size: 16px; line-height: 1.65; color: var(--muted); }
+
+/* "One shared brain" floating cards */
+@keyframes grFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.gr-float { animation: grFloat 6s ease-in-out infinite; }
+.gr-d2 { animation-delay: -2s; }
+.gr-d3 { animation-delay: -4s; }
+@media (max-width: 620px) { .gr-stage { scale: 0.62; } }
+@media (prefers-reduced-motion: reduce) { .gr-float { animation: none; } html { scroll-behavior: auto; } }

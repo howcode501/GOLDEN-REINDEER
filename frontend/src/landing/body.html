@@ -1,0 +1,474 @@
+<div class="page" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #2A1A0E; background: #FFFBF5; width: 100%; box-sizing: border-box">
+<!-- 3D reindeer layer: stays in view and runs down the page with the scroll -->
+<canvas id="reindeer-canvas" data-gr-gl="1" aria-hidden="true" style="position: sticky; top: 0; display: block; width: 100%; height: 100vh; margin-bottom: -100vh; pointer-events: none; z-index: 50"></canvas>
+
+<!-- NAV -->
+<header style="border-bottom: 1px solid #EFE4D4; background: #FFFBF5">
+<nav aria-label="Main" style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #2A1A0E">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #F6E7CF; display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v4l-3-2M8 7l3-2M16 3v4l3-2M16 7l-3-2M8 7c0 2 1 3 4 3s4-1 4-3M9 10l-1 4h8l-1-4M8 14l-1 7M16 14l1 7M12 14v7"></path></svg>
+</span>
+<span style="font-weight: 700; letter-spacing: 0.18em; font-size: 15px">GOLDEN REINDEER</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px; font-weight: 500">
+<a href="#team" style="text-decoration: none; color: #4A3A2C">AI Marketing Team</a>
+<a href="#store" style="text-decoration: none; color: #4A3A2C">Automation Store</a>
+<a href="#agencies" style="text-decoration: none; color: #4A3A2C">For Agencies</a>
+<a href="#pricing" style="text-decoration: none; color: #4A3A2C">Pricing</a>
+<a href="#report" style="text-decoration: none; color: #4A3A2C">Free GBP Report</a>
+</div>
+<div style="display: flex; gap: 12px; align-items: center">
+<a href="#login" style="text-decoration: none; font-weight: 600; font-size: 15px; color: #4A3A2C; padding: 12px 8px">Log in</a>
+<a href="#demo" data-gr-anchor="navdemo" style="text-decoration: none; background: var(--accent); color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 999px">Book free demo</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="background: #FBF3E6; position: relative; overflow: hidden">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px 110px; min-height: 520px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<div style="flex: 0 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span data-gr-anchor="start" style="align-self: flex-start; border: 1px solid #E3C79C; color: #8A4408; background: #FFFBF5; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em">ONE PLATFORM · THREE WAYS TO GROW</span>
+<h1 style="margin: 0; font-size: clamp(40px, 5vw, 68px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 800; color: #2A1A0E">Marketing that runs itself, <span style="color: var(--accent)">so you can run your business.</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #5C4A3A; max-width: 560px">Hire an AI marketing team, switch on single automations from our store, or sell it all under your own brand. Google profile, WhatsApp, leads, reviews and ads, connected in one place.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px">
+<a href="#report" style="text-decoration: none; background: var(--accent); color: #FFFFFF; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px">Get free Google Profile report</a>
+<a href="#demo" data-gr-anchor="demo" style="text-decoration: none; background: #FFFBF5; color: #2A1A0E; border: 1.5px solid #E3C79C; font-weight: 700; font-size: 17px; padding: 15px 28px; border-radius: 999px">Book a demo</a>
+</div>
+<p style="margin: 8px 0 0; font-size: 14px; color: #6B5A4A; border: 1px dashed #D9BE93; border-radius: 10px; padding: 10px 14px; align-self: flex-start">[Add real proof here, e.g. “Live with 12 salons in Pune”]</p>
+</div>
+<div data-gr-anchor="deer" aria-hidden="true" style="flex: 1 1 400px; min-width: 0; height: 480px"></div>
+</div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 24px; text-align: center"><span data-gr-anchor="scroll" style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: #8A4408">SCROLL</span></div>
+</section>
+
+<!-- ONE BRAIN: separate tools assemble on scroll -->
+<section id="one-brain" style="background: #FFFBF5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">ONE SHARED BRAIN</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Stop juggling five apps</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #5C4A3A">Your Google profile, WhatsApp chats, reviews, social posts and ads all feed one customer record. Every agent and automation sees the full picture, so no lead slips through.</p></div>
+<div id="brain-panel" style="--c1: translate3d(-150.0px,-150.0px,140.0px) rotateZ(-9.0deg) rotateY(18.0deg); --c2: translate3d(160.0px,-70.0px,240.0px) rotateZ(7.0deg) rotateY(-14.0deg); --c3: translate3d(-30.0px,150.0px,60.0px) rotateZ(-3.0deg) rotateY(6.0deg); --c4: translate(-50%,-50%) translate3d(-210.0px,40.0px,180.0px) scale(1.0); --c5: translate(-50%,-50%) translate3d(205.0px,110.0px,120.0px) scale(1.0); --c6: translate(-50%,-50%) translate3d(150.0px,-205.0px,60.0px) scale(1.0); --stageT: rotateX(16.0deg) rotateY(-20.0deg); --capA: 1.00; --capB: 0.00; --hintA: 1.00; --hubO: 0.00; --hubS: 0.8; --chipO: 1.00; flex: 1 1 520px; min-width: 0; height: 560px; background: #F6E7CF; border-radius: 28px; position: relative; overflow: hidden; perspective: 1400px">
+<div style="position: absolute; top: 22px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #6B5A4A; opacity: var(--capA)">SEPARATE TOOLS. SEPARATE HEADACHES.</div>
+<div style="position: absolute; top: 22px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #8A4408; opacity: var(--capB)">ONE BRAIN. EVERY CHANNEL.</div>
+<div style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; font-size: 12px; color: #6B5A4A; opacity: var(--hintA)">Scroll to connect them ↓</div>
+
+<div class="gr-stage" style="position: absolute; inset: 0; transform-style: preserve-3d; transform: var(--stageT); transition: transform 0.25s ease-out">
+
+<!-- hub: appears when assembled -->
+<div style="position: absolute; left: 50%; top: 50%; width: 560px; height: 430px; margin-left: -280px; margin-top: -215px; border-radius: 28px; border: 2px solid var(--accent); background: rgba(255,251,245,0.55); transform: translateZ(-40px) scale(var(--hubS)); opacity: var(--hubO)"></div>
+<div style="position: absolute; left: 50%; top: 50%; margin-left: -110px; margin-top: 222px; width: 220px; text-align: center; transform: translateZ(-20px); opacity: var(--hubO)">
+<span style="display: inline-flex; gap: 8px; align-items: center; background: #2A1A0E; color: #FBF3E6; font-size: 13px; font-weight: 700; border-radius: 999px; padding: 8px 14px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v4l-3-2M8 7l3-2M16 3v4l3-2M16 7l-3-2M8 7c0 2 1 3 4 3s4-1 4-3M9 10l-1 4h8l-1-4"></path></svg>Golden Reindeer</span>
+</div>
+
+<!-- card 1: Google -->
+<div style="position: absolute; left: 50%; top: 50%; width: 250px; height: 172px; margin-left: -125px; margin-top: -86px; transform-style: preserve-3d; transform: var(--c1)">
+<div class="gr-float" style="width: 100%; height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 18px 40px rgba(90,60,20,0.16)">
+<span style="font-size: 12px; font-weight: 700; color: #6B5A4A; letter-spacing: 0.06em">GOOGLE BUSINESS PROFILE</span>
+<strong style="font-size: 17px">Your Salon, Pune</strong>
+<span style="font-size: 14px; color: #5C4A3A; line-height: 1.4">Review replied · Weekly post published</span>
+<div style="display: flex; gap: 6px; margin-top: auto">
+<span style="font-size: 12px; background: #FBF3E6; border-radius: 8px; padding: 6px 9px">Call</span>
+<span style="font-size: 12px; background: #FBF3E6; border-radius: 8px; padding: 6px 9px">Directions</span>
+<span style="font-size: 12px; background: #FBF3E6; border-radius: 8px; padding: 6px 9px">Message</span>
+</div>
+</div>
+</div>
+
+<!-- card 2: WhatsApp -->
+<div style="position: absolute; left: 50%; top: 50%; width: 250px; height: 172px; margin-left: -125px; margin-top: -86px; transform-style: preserve-3d; transform: var(--c2)">
+<div class="gr-float gr-d2" style="width: 100%; height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 18px 40px rgba(90,60,20,0.16)">
+<span style="font-size: 12px; font-weight: 700; color: #1F6B45; letter-spacing: 0.06em">WHATSAPP · AI AGENT</span>
+<span style="align-self: flex-start; background: #F1F1F1; border-radius: 12px 12px 12px 4px; padding: 8px 12px; font-size: 14px">Any slot this Saturday?</span>
+<span style="align-self: flex-end; background: #DDF3E4; border-radius: 12px 12px 4px 12px; padding: 8px 12px; font-size: 14px">Yes! 11 am or 4 pm →</span>
+</div>
+</div>
+
+<!-- card 3: lead record -->
+<div style="position: absolute; left: 50%; top: 50%; width: 510px; height: 196px; margin-left: -255px; margin-top: -98px; transform-style: preserve-3d; transform: var(--c3)">
+<div class="gr-float gr-d3" style="width: 100%; height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 18px 40px rgba(90,60,20,0.16)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<strong style="font-size: 16px">Priya S. · one customer record</strong>
+<span style="font-size: 12px; font-weight: 700; color: #8A4408; background: #FBF3E6; border-radius: 999px; padding: 5px 10px">HOT</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 9px; font-size: 14px; color: #4A3A2C">
+<div style="display: flex; gap: 10px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent)"></span>Found you on Google</div>
+<div style="display: flex; gap: 10px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent)"></span>Answered on WhatsApp in under a minute</div>
+<div style="display: flex; gap: 10px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent)"></span>Booked Saturday 11:00 · reminder scheduled</div>
+<div style="display: flex; gap: 10px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); box-sizing: border-box"></span>Rebooking message in 4 weeks</div>
+</div>
+</div>
+</div>
+
+<!-- floating chips: other tools -->
+<div style="position: absolute; left: 50%; top: 50%; transform: var(--c4); opacity: var(--chipO)"><span class="gr-float gr-d2" style="display: inline-block; white-space: nowrap; background: #FFFFFF; border-radius: 999px; padding: 9px 14px; font-size: 13px; font-weight: 700; box-shadow: 0 10px 24px rgba(90,60,20,0.14)">★ Reviews</span></div>
+<div style="position: absolute; left: 50%; top: 50%; transform: var(--c5); opacity: var(--chipO)"><span class="gr-float" style="display: inline-block; white-space: nowrap; background: #FFFFFF; border-radius: 999px; padding: 9px 14px; font-size: 13px; font-weight: 700; box-shadow: 0 10px 24px rgba(90,60,20,0.14)">Ads report</span></div>
+<div style="position: absolute; left: 50%; top: 50%; transform: var(--c6); opacity: var(--chipO)"><span class="gr-float gr-d3" style="display: inline-block; white-space: nowrap; background: #FFFFFF; border-radius: 999px; padding: 9px 14px; font-size: 13px; font-weight: 700; box-shadow: 0 10px 24px rgba(90,60,20,0.14)">Social posts</span></div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- INDUSTRIES -->
+<section aria-label="Industries" style="border-bottom: 1px solid #EFE4D4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #6B5A4A">BUILT FOR</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span class="chip">Salons</span>
+<span class="chip">Clinics</span>
+<span class="chip">Dentists</span>
+<span class="chip">Gyms</span>
+<span class="chip">Yoga studios</span>
+<span class="chip">Bakeries</span>
+<span class="chip">Restaurants</span>
+<span class="chip">Coaching classes</span>
+<span class="chip">Car garages</span>
+<span class="chip">Travel agents</span>
+<span class="chip">Pest control</span>
+</div>
+</div>
+</section>
+
+<!-- THREE WAYS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 40px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">PICK HOW YOU WORK</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Three ways to use Golden Reindeer</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #5C4A3A">Start small or hand over everything. It is the same engine underneath.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+
+<article id="team" style="background: #FFFFFF; border: 1px solid #EFE4D4; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5.5"></path></svg>
+</span>
+<span style="font-size: 13px; font-weight: 700; color: #6B5A4A; letter-spacing: 0.08em">FOR BUSINESS OWNERS</span>
+<h3 style="margin: 0; font-size: 24px; letter-spacing: -0.01em">AI Marketing Team</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5C4A3A">Three AI agents run your Google profile, reply to every WhatsApp message and bring customers back. You approve, they do the work.</p>
+<a href="#demo" style="margin-top: auto; font-weight: 700; font-size: 16px; color: #8A4408; text-decoration: none">Meet your team →</a>
+</article>
+
+<article id="store-card" style="background: #FFFFFF; border: 1px solid #EFE4D4; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><path d="M17.5 14v7M14 17.5h7"></path></svg>
+</span>
+<span style="font-size: 13px; font-weight: 700; color: #6B5A4A; letter-spacing: 0.08em">FOR ANYONE</span>
+<h3 style="margin: 0; font-size: 24px; letter-spacing: -0.01em">Automation Store</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #5C4A3A">Pay only for what you need. Missed-call replies, review requests, booking reminders: switch one on in minutes, no setup calls.</p>
+<a href="#store" style="margin-top: auto; font-weight: 700; font-size: 16px; color: #8A4408; text-decoration: none">Browse automations →</a>
+</article>
+
+<article style="background: #2A1A0E; color: #FBF3E6; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #3D2A1A; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l8-4 8 4-8 4-8-4z"></path><path d="M4 12l8 4 8-4M4 17l8 4 8-4"></path></svg>
+</span>
+<span style="font-size: 13px; font-weight: 700; color: #E3C79C; letter-spacing: 0.08em">FOR AGENCIES &amp; FREELANCERS</span>
+<h3 style="margin: 0; font-size: 24px; letter-spacing: -0.01em">White-label platform</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E8DCCB">Sell the whole platform as your own. Your logo, your domain, your clients and your prices. We run the software.</p>
+<a href="#agencies" style="margin-top: auto; font-weight: 700; font-size: 16px; color: #F2C27A; text-decoration: none">Become a partner →</a>
+</article>
+
+</div>
+</section>
+
+<!-- WHAT IT COVERS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px">
+<div style="max-width: 620px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">EVERYTHING CONNECTED</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">From first search to repeat customer</h2>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5C4A3A; max-width: 420px">One shared brain: every agent and automation reads the same customer record, so nothing falls through the gaps between apps.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: #EFE4D4; border: 1px solid #EFE4D4; border-radius: 24px; overflow: hidden">
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path></svg>
+</span>
+<strong style="font-size: 17px">Google Business Profile</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Posts, photos, offers and Q&amp;A kept fresh every week.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"></path></svg>
+</span>
+<strong style="font-size: 17px">Local SEO</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Show up when people nearby search for what you sell.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.5-4A8 8 0 1 1 8 18.5L4 20z"></path></svg>
+</span>
+<strong style="font-size: 17px">WhatsApp AI agent</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Answers questions and books slots, day and night.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v4l-6 6v6l-4-2v-4L4 8V4z"></path></svg>
+</span>
+<strong style="font-size: 17px">Lead capture</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Calls, chats, forms and ads land in one list.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M9 3v4M15 3v4"></path></svg>
+</span>
+<strong style="font-size: 17px">Follow-ups &amp; bookings</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Every lead followed up until they book or say no.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"></path></svg>
+</span>
+<strong style="font-size: 17px">Reviews</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Ask for reviews and reply to every one, on brand.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM8 14l3-3 3 3 2-2 4 4"></path></svg>
+</span>
+<strong style="font-size: 17px">Social posting</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Instagram and Facebook posts planned and published.</span>
+</div>
+<div style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: #FBF3E6; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A4408" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"></path></svg>
+</span>
+<strong style="font-size: 17px">Ads that follow bookings</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">See which ad brought paying customers, not just clicks.</span>
+</div>
+</div>
+</section>
+
+<!-- AUTOMATION STORE -->
+<section id="store" style="background: #FBF3E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">AUTOMATION STORE</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Switch on the jobs you hate doing</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #5C4A3A">Each automation does one job well. Turn it on, and it runs every day without you.</p>
+</div>
+<span style="font-size: 15px; font-weight: 700; color: #2A1A0E; background: #FFFBF5; border: 1px solid #E3C79C; border-radius: 999px; padding: 10px 18px"><span id="auto-count">3</span> of 6 switched on</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px">
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">Missed-call text-back</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Missed a call? The customer gets a WhatsApp with your booking link in seconds.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="true" aria-label="Turn off Missed-call text-back" data-title="Missed-call text-back"><span class="knob"></span></button>
+</div>
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">No-show reminders</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Reminders 24 hours and 2 hours before, with one-tap confirm or reschedule.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="true" aria-label="Turn off No-show reminders" data-title="No-show reminders"><span class="knob"></span></button>
+</div>
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">Rebooking timer</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Nudges each customer when their next visit is due, based on the service they had.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="false" aria-label="Turn on Rebooking timer" data-title="Rebooking timer"><span class="knob"></span></button>
+</div>
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">Review requests</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Asks happy customers for a Google review right after their visit.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="true" aria-label="Turn off Review requests" data-title="Review requests"><span class="knob"></span></button>
+</div>
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">Win-back offers</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Brings back customers who have not visited in 60 days with a time-limited offer.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="false" aria-label="Turn on Win-back offers" data-title="Win-back offers"><span class="knob"></span></button>
+</div>
+<div class="auto-card">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<strong style="font-size: 17px">Hot-lead alerts</strong>
+<span style="font-size: 15px; line-height: 1.55; color: #5C4A3A">Pings you on your phone the moment a high-value enquiry comes in.</span>
+</div>
+<button type="button" class="toggle" data-toggle aria-pressed="false" aria-label="Turn on Hot-lead alerts" data-title="Hot-lead alerts"><span class="knob"></span></button>
+</div>
+</div>
+<a href="#store-all" style="align-self: flex-start; text-decoration: none; font-weight: 700; font-size: 16px; color: #8A4408">See all automations →</a>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">HOW IT WORKS</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Live in a day, not a month</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 44px; font-weight: 800; color: var(--accent); line-height: 1">01</span>
+<strong style="font-size: 20px">Connect</strong>
+<span style="font-size: 16px; line-height: 1.6; color: #5C4A3A">Link your Google Business Profile and WhatsApp number. Takes about ten minutes.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 44px; font-weight: 800; color: var(--accent); line-height: 1">02</span>
+<strong style="font-size: 20px">Choose</strong>
+<span style="font-size: 16px; line-height: 1.6; color: #5C4A3A">Take the full AI team, or pick single automations. Change your mind any time.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 44px; font-weight: 800; color: var(--accent); line-height: 1">03</span>
+<strong style="font-size: 20px">Watch it work</strong>
+<span style="font-size: 16px; line-height: 1.6; color: #5C4A3A">Leads, chats, bookings and reviews in one owner app, with a summary every morning.</span>
+</div>
+</div>
+</section>
+
+<!-- WHITE LABEL -->
+<section id="agencies" style="background: #2A1A0E; color: #FBF3E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #F2C27A">FOR AGENCIES &amp; FREELANCERS</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Launch your own marketing software. Without building any.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #E8DCCB">Give your clients a platform with your name on it, and earn every month instead of chasing one-off projects.</p>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 16px">
+<div style="display: flex; gap: 12px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Your logo, colours and domain</div>
+<div style="display: flex; gap: 12px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>A separate account for every client</div>
+<div style="display: flex; gap: 12px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Resell any automation from the store</div>
+<div style="display: flex; gap: 12px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C27A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>You set the price, you keep the margin</div>
+</div>
+<a href="#partner" style="align-self: flex-start; margin-top: 8px; text-decoration: none; background: #F2C27A; color: #2A1A0E; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px">Become a partner</a>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; background: #3D2A1A; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 9px; border: 1.5px dashed #E3C79C; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #E3C79C">LOGO</span>
+<strong style="font-size: 16px; color: #FBF3E6">[Your Agency] Marketing</strong>
+</div>
+<span style="font-size: 12px; color: #E3C79C">Partner view</span>
+</div>
+<div style="background: #FFFBF5; border-radius: 16px; padding: 6px 18px; color: #2A1A0E; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #EFE4D4; font-size: 15px"><span>Sharma Dental Clinic</span><span style="color: #6B5A4A">AI Team</span></div>
+<div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #EFE4D4; font-size: 15px"><span>Glow Studio Salon</span><span style="color: #6B5A4A">3 automations</span></div>
+<div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #EFE4D4; font-size: 15px"><span>Fit Zone Gym</span><span style="color: #6B5A4A">AI Team</span></div>
+<div style="display: flex; justify-content: space-between; padding: 14px 0; font-size: 15px"><span>+ Add client</span><span style="color: #8A4408; font-weight: 700">Invite</span></div>
+</div>
+<span style="font-size: 12px; color: #C9B79F">Example client names</span>
+</div>
+</div>
+</section>
+
+<!-- PRICING TEASER -->
+<section id="pricing" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 40px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">PRICING</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Simple monthly plans</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<div style="border: 1px solid #EFE4D4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<strong style="font-size: 18px">Automations</strong>
+<span style="font-size: 30px; font-weight: 800">[PRICE]<span style="font-size: 15px; font-weight: 500; color: #6B5A4A"> / automation / month</span></span>
+<span style="font-size: 15px; color: #5C4A3A; line-height: 1.55">Pick single jobs from the store.</span>
+</div>
+<div style="border: 2px solid var(--accent); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<strong style="font-size: 18px">AI Marketing Team</strong>
+<span style="font-size: 30px; font-weight: 800">₹5,000<span style="font-size: 15px; font-weight: 500; color: #6B5A4A"> / month</span></span>
+<span style="font-size: 15px; color: #5C4A3A; line-height: 1.55">All three agents and every core automation.</span>
+</div>
+<div style="border: 1px solid #EFE4D4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<strong style="font-size: 18px">Partner (white-label)</strong>
+<span style="font-size: 30px; font-weight: 800">[PRICE]<span style="font-size: 15px; font-weight: 500; color: #6B5A4A"> / client / month</span></span>
+<span style="font-size: 15px; color: #5C4A3A; line-height: 1.55">Your brand, unlimited clients, wholesale rates.</span>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #8A4408">FAQ</span>
+<h2 style="margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.02em">Questions owners ask us</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5C4A3A">Something else? <a href="#demo" style="font-weight: 700; color: #8A4408">Talk to us on a free demo.</a></p>
+</div>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; border-top: 1px solid #EFE4D4">
+<div class="faq-item">
+<button type="button" class="faq-q" data-faq aria-expanded="true" aria-controls="faq-a0">
+<span>Do I need to be good with technology?</span>
+<span class="faq-sign" aria-hidden="true">−</span>
+</button>
+<p id="faq-a0" class="faq-a">No. If you can use WhatsApp, you can use Golden Reindeer. We set everything up with you on a call, and you approve messages before they go out.</p>
+</div>
+<div class="faq-item">
+<button type="button" class="faq-q" data-faq aria-expanded="false" aria-controls="faq-a1">
+<span>How soon will I see results?</span>
+<span class="faq-sign" aria-hidden="true">+</span>
+</button>
+<p id="faq-a1" class="faq-a" hidden>Automations like missed-call replies and booking reminders work from the first day. Better Google ranking builds over weeks, not days, because Google needs time to see the changes.</p>
+</div>
+<div class="faq-item">
+<button type="button" class="faq-q" data-faq aria-expanded="false" aria-controls="faq-a2">
+<span>Can I start with just one automation?</span>
+<span class="faq-sign" aria-hidden="true">+</span>
+</button>
+<p id="faq-a2" class="faq-a" hidden>Yes. Switch on single automations from the store and add the full AI Marketing Team later, or never. You can turn any automation off whenever you want.</p>
+</div>
+<div class="faq-item">
+<button type="button" class="faq-q" data-faq aria-expanded="false" aria-controls="faq-a3">
+<span>How does white-labeling work for agencies?</span>
+<span class="faq-sign" aria-hidden="true">+</span>
+</button>
+<p id="faq-a3" class="faq-a" hidden>You get a partner account with your own logo, colours and domain. Add each client as a separate account, choose what they get, and set your own prices. We run and update the software.</p>
+</div>
+<div class="faq-item">
+<button type="button" class="faq-q" data-faq aria-expanded="false" aria-controls="faq-a4">
+<span>Will you message my customers without asking?</span>
+<span class="faq-sign" aria-hidden="true">+</span>
+</button>
+<p id="faq-a4" class="faq-a" hidden>No. Automations only message customers who have contacted you or agreed to hear from you, and every message can be reviewed before it is switched on.</p>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA: WhatsApp booster -->
+<section id="report" style="max-width: 1200px; margin: 0 auto; padding: 150px 24px 96px">
+<div data-gr-anchor="end" style="background: #F6E7CF; border-radius: 32px; padding: 56px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #1F6B45; background: #FFFBF5; border-radius: 999px; padding: 6px 12px">FREE · NO SIGNUP</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.15; letter-spacing: -0.02em">See what Google shows your customers</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5C4A3A">Send one WhatsApp message. Get your Google Profile report back in the same chat.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; color: #4A3A2C">
+<span style="display: flex; gap: 8px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Your ranking vs nearby competitors</span>
+<span style="display: flex; gap: 8px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Top 3 fixes for more calls</span>
+<span style="display: flex; gap: 8px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Review QR code for your counter</span>
+</div>
+</div>
+<div style="flex: 0 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; align-items: stretch">
+<a href="#whatsapp" style="text-decoration: none; background: #1F6B45; color: #FFFFFF; font-weight: 700; font-size: 17px; padding: 18px 28px; border-radius: 999px; display: flex; gap: 10px; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.5-4A8 8 0 1 1 8 18.5L4 20z"></path></svg>Get my report on WhatsApp</a>
+<a href="#demo" style="text-decoration: none; text-align: center; font-weight: 700; font-size: 16px; color: #2A1A0E; padding: 12px">or book a free demo →</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top: 1px solid #EFE4D4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; font-size: 14px; color: #6B5A4A">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<strong style="color: #2A1A0E; letter-spacing: 0.16em">GOLDEN REINDEER</strong>
+<span>It was there in you from the start.</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#about" style="text-decoration: none; color: #6B5A4A">About us</a>
+<a href="#app" style="text-decoration: none; color: #6B5A4A">Owner app</a>
+<a href="#privacy" style="text-decoration: none; color: #6B5A4A">Privacy</a>
+<a href="#terms" style="text-decoration: none; color: #6B5A4A">Terms</a>
+<a href="mailto:goldenreindeer.info@gmail.com" style="text-decoration: none; color: #6B5A4A">goldenreindeer.info@gmail.com</a>
+</div>
+</div>
+</footer>
+
+</div>

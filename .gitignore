@@ -1,0 +1,21 @@
+# secrets
+.env
+*.env.local
+backend/.env
+frontend/.env
+
+# python
+__pycache__/
+.venv/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# node
+node_modules/
+frontend/dist/
+
+# os/editor
+.DS_Store
+.vscode/
+.idea/
