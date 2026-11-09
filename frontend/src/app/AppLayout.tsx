@@ -10,7 +10,9 @@ import {
   Zap, 
   Settings as SettingsIcon,
   Globe,
-  Sparkles
+  Sparkles,
+  FileText,
+  Calendar
 } from "lucide-react";
 
 export default function AppLayout() {
@@ -18,7 +20,9 @@ export default function AppLayout() {
 
   const navItems = [
     { label: "Dashboard", path: "/app", icon: LayoutDashboard },
+    { label: "Growth Reports", path: "/report", icon: FileText },
     { label: "Leads & CRM", path: "/app/leads", icon: Users },
+    { label: "Appointments", path: "/app/appointments", icon: Calendar },
     { label: "WhatsApp Inbox", path: "/app/inbox", icon: MessageSquare },
     { label: "Campaigns", path: "/app/campaigns", icon: Megaphone },
     { label: "Google AI Agent", path: "/app/google", icon: Search },
@@ -29,9 +33,9 @@ export default function AppLayout() {
   ];
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#FFFBF5", color: "#2A1A0E", fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}>
+    <div style={{ display: "flex", height: "100vh", overflow: "hidden", background: "#FFFBF5", color: "#2A1A0E", fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}>
       {/* Sidebar */}
-      <aside style={{ width: "260px", borderRight: "1px solid #EFE4D4", background: "#FBF3E6", display: "flex", flexDirection: "column", padding: "24px 16px", boxSizing: "border-box" }}>
+      <aside style={{ width: "260px", height: "100vh", overflowY: "auto", borderRight: "1px solid #EFE4D4", background: "#FBF3E6", display: "flex", flexDirection: "column", padding: "24px 16px", boxSizing: "border-box" }}>
         {/* Brand */}
         <Link to="/" style={{ textDecoration: "none", color: "#2A1A0E", display: "flex", alignItems: "center", gap: "12px", padding: "0 8px 24px" }}>
           <span style={{ width: "36px", height: "36px", borderRadius: "10px", background: "#F6E7CF", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#8A4408" }}>
@@ -46,10 +50,10 @@ export default function AppLayout() {
         {/* Business Selector */}
         <div style={{ background: "#FFFBF5", border: "1px solid #E3C79C", borderRadius: "12px", padding: "10px 12px", marginBottom: "20px" }}>
           <div style={{ fontSize: "11px", fontWeight: 700, color: "#8A4408", letterSpacing: "0.08em" }}>CONNECTED BUSINESS</div>
-          <div style={{ fontSize: "14px", fontWeight: 700, color: "#2A1A0E", marginTop: "2px" }}>Glow & Grace Salon</div>
+          <div style={{ fontSize: "14px", fontWeight: 700, color: "#2A1A0E", marginTop: "2px" }}>Glow & Grace Studio</div>
           <div style={{ fontSize: "12px", color: "#1F6B45", fontWeight: 600, display: "flex", alignItems: "center", gap: "4px", marginTop: "4px" }}>
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1F6B45" }}></span>
-            AI Team Active
+            New York, NY · AI Team Active
           </div>
         </div>
 
@@ -92,7 +96,7 @@ export default function AppLayout() {
       </aside>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, padding: "32px 40px", overflowY: "auto", maxHeight: "100vh", boxSizing: "border-box" }}>
+      <main style={{ flex: 1, height: "100vh", overflowY: "auto", padding: "24px 36px 80px", boxSizing: "border-box" }}>
         <Outlet />
       </main>
     </div>

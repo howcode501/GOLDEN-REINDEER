@@ -11,6 +11,9 @@ import AutomationStorePage from "./app/AutomationStorePage";
 import LeadsPage from "./app/LeadsPage";
 import InboxPage from "./app/InboxPage";
 import ReviewsPage from "./app/ReviewsPage";
+import CampaignsPage from "./app/CampaignsPage";
+import GoogleAgentPage from "./app/GoogleAgentPage";
+import OnboardingPage from "./app/OnboardingPage";
 
 const queryClient = new QueryClient();
 
@@ -22,13 +25,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<LandingPage />} />
           <Route path="/report" element={<FreeReportPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/onboarding" element={<OnboardingPage />} />
           
           <Route path="/app" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path="onboarding" element={<OnboardingPage />} />
             <Route path="leads" element={<LeadsPage />} />
             <Route path="inbox" element={<InboxPage />} />
-            <Route path="campaigns" element={<Dashboard />} />
-            <Route path="google" element={<ReviewsPage />} />
+            <Route path="campaigns" element={<CampaignsPage />} />
+            <Route path="google" element={<GoogleAgentPage />} />
             <Route path="reviews" element={<ReviewsPage />} />
             <Route path="automations" element={<AutomationStorePage />} />
             <Route path="website" element={<FreeReportPage />} />

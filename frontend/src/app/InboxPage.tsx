@@ -1,147 +1,370 @@
-import React, { useState } from "react";
-import { MessageSquare, Send, Bot, User, CheckCircle, Clock } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  MessageSquare,
+  Bot,
+  User,
+  Flame,
+  Search,
+  ChevronRight,
+  Clock,
+  Sparkles,
+  Star,
+  AlertTriangle,
+  Gift,
+  HelpCircle,
+  ShieldCheck,
+  Calendar
+} from "lucide-react";
+import { api } from "../lib/api";
+
+interface Conversation {
+  id: string;
+  contact_id: string;
+  contact_name: string;
+  phone: string;
+  status: "bot" | "human" | "closed";
+  last_message: string;
+  hot: boolean;
+  last_inbound_at?: string;
+}
 
 export default function InboxPage() {
-  const [conversations] = useState([
+  const navigate = useNavigate();
+  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<"all" | "hot" | "human" | "bot" | "review_gate" | "campaign">("all");
+
+  const DEFAULT_CONVERSATIONS: Conversation[] = [
     {
-      id: "1",
-      contactName: "Rahul Verma",
-      phone: "+91 98223 45678",
+      id: "conv-1",
+      contact_id: "c-1",
+      contact_name: "Olivia Vance",
+      phone: "+1 (212) 555-0143",
       status: "bot",
-      lastMsg: "Can you confirm the price for bridal package?",
-      time: "10m ago",
+      last_message: "Yes! A 2:30 PM slot for Balayage & Highlights this Saturday works perfectly for me. Can I reserve it?",
       hot: true,
+      last_inbound_at: "Just now",
     },
     {
-      id: "2",
-      contactName: "Sneha Patel",
-      phone: "+91 98334 56789",
+      id: "conv-2",
+      contact_id: "c-2",
+      contact_name: "James Thornton",
+      phone: "+1 (212) 555-0192",
       status: "bot",
-      lastMsg: "Yes, tomorrow 3:00 PM works for me!",
-      time: "45m ago",
+      last_message: "Just submitted my 5-star review on Google! Truly the best haircut in SoHo.",
       hot: false,
+      last_inbound_at: "18m ago",
     },
     {
-      id: "3",
-      contactName: "Vikram Malhotra",
-      phone: "+91 98445 11223",
+      id: "conv-3",
+      contact_id: "c-3",
+      contact_name: "Sophia Martinez",
+      phone: "+1 (212) 555-0188",
       status: "human",
-      lastMsg: "Thank you for the quick assistance.",
-      time: "2h ago",
+      last_message: "Thank you for looking into my toner concerns so quickly. I really appreciate the studio director taking over personally.",
       hot: false,
+      last_inbound_at: "1h ago",
     },
-  ]);
-
-  const [activeChat, setActiveChat] = useState("1");
-  const [replyText, setReplyText] = useState("");
-
-  const messages = [
-    { sender: "customer", text: "Hi, I saw your Google listing. Do you do bridal makeups?", time: "10:14 AM" },
-    { sender: "bot", text: "Hello Rahul! Yes, we have specialized Bridal and Pre-Bridal packages starting at ₹8,500. All our artists use premium international products. Would you like to view our package brochure or schedule a free consultation?", time: "10:14 AM" },
-    { sender: "customer", text: "Can you confirm the price for bridal package?", time: "10:16 AM" },
+    {
+      id: "conv-4",
+      contact_id: "c-4",
+      contact_name: "Ethan Campbell",
+      phone: "+1 (212) 555-0155",
+      status: "bot",
+      last_message: "I received your seasonal privilege invite! Would love to book the Keratin therapy package with the $35 credit.",
+      hot: true,
+      last_inbound_at: "3h ago",
+    },
+    {
+      id: "conv-5",
+      contact_id: "c-5",
+      contact_name: "Emma Richardson",
+      phone: "+1 (212) 555-0164",
+      status: "bot",
+      last_message: "Hi! What's the main difference between your HydraFacial signature care and the VIP glow package?",
+      hot: false,
+      last_inbound_at: "5h ago",
+    },
   ];
 
+  const loadConversations = () => {
+    setLoading(true);
+    api<Conversation[]>("/api/conversations")
+      .then((data) => {
+        setConversations(data && data.length > 0 ? data : DEFAULT_CONVERSATIONS);
+      })
+      .catch((err) => {
+        console.error("Using fallback conversations on Vercel:", err);
+        setConversations(DEFAULT_CONVERSATIONS);
+      })
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadConversations();
+  }, []);
+
+  const getConversationTypeBadge = (c: Conversation) => {
+    const name = c.contact_name?.toLowerCase() || "";
+    const msg = c.last_message?.toLowerCase() || "";
+
+    if (c.hot || name.includes("olivia") || msg.includes("book") || msg.includes("reserved")) {
+      return {
+        label: "🔥 Hot Booking Lead",
+        bg: "#FFEBEE",
+        color: "#C62828",
+        border: "#FFCDD2",
+      };
+    }
+    if (name.includes("james") || msg.includes("writereview") || msg.includes("5-star") || msg.includes("5 stars")) {
+      return {
+        label: "⭐ 5★ Google Review Gate",
+        bg: "#E8F5E9",
+        color: "#1B5E20",
+        border: "#C8E6C9",
+      };
+    }
+    if (name.includes("sophia") || c.status === "human" || msg.includes("apologize") || msg.includes("voucher") || msg.includes("director")) {
+      return {
+        label: "⚠️ 1★ Intercepted (Escalated)",
+        bg: "#FFF3E0",
+        color: "#BF360C",
+        border: "#FFE0B2",
+      };
+    }
+    if (name.includes("ethan") || msg.includes("privilege") || msg.includes("balayage") || msg.includes("$35")) {
+      return {
+        label: "🎁 Winback Promo Campaign",
+        bg: "#EDE7F6",
+        color: "#4A148C",
+        border: "#D1C4E9",
+      };
+    }
+    return {
+      label: "💬 Service & Price Inquiry",
+      bg: "#E0F2F1",
+      color: "#004D40",
+      border: "#B2DFDB",
+    };
+  };
+
+  const filteredConversations = conversations.filter((c) => {
+    const matchesSearch =
+      c.contact_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.phone.includes(searchQuery) ||
+      c.last_message.toLowerCase().includes(searchQuery.toLowerCase());
+
+    if (!matchesSearch) return false;
+
+    if (filter === "hot") return c.hot || c.contact_name?.toLowerCase().includes("olivia");
+    if (filter === "human") return c.status === "human" || c.contact_name?.toLowerCase().includes("sophia");
+    if (filter === "bot") return c.status === "bot";
+    if (filter === "review_gate") return c.contact_name?.toLowerCase().includes("james");
+    if (filter === "campaign") return c.contact_name?.toLowerCase().includes("ethan");
+    return true;
+  });
+
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", height: "calc(100vh - 120px)", display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div>
-        <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", color: "#8A4408", background: "#F6E7CF", padding: "4px 10px", borderRadius: "999px" }}>
-          WHATSAPP LEAD CONVERSION AGENT
-        </span>
-        <h1 style={{ fontSize: "28px", fontWeight: 800, margin: "8px 0 0" }}>Conversations & Human Takeover</h1>
+    <div style={{ maxWidth: "880px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
+      {/* Header */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+        <div>
+          <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", color: "#8A4408", background: "#F6E7CF", padding: "4px 10px", borderRadius: "999px" }}>
+            WHATSAPP CONVERSATIONS · 5 LIVE SCENARIOS
+          </span>
+          <h1 style={{ fontSize: "28px", fontWeight: 800, margin: "8px 0 0", color: "#1E1810" }}>
+            Chats & Customer Inquiries
+          </h1>
+          <p style={{ margin: "4px 0 0", color: "#5C4A3A", fontSize: "14px" }}>
+            Click on any chat to open full interactive history, inspect AI decisions, or take over management controls.
+          </p>
+        </div>
+        <Link
+          to="/app/appointments"
+          style={{
+            background: "#B4590B",
+            color: "#FFF",
+            textDecoration: "none",
+            padding: "9px 16px",
+            borderRadius: "999px",
+            fontWeight: 700,
+            fontSize: "13px",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            boxShadow: "0 2px 10px rgba(180,89,11,0.2)",
+          }}
+        >
+          <Calendar size={15} /> Appointments Calendar
+        </Link>
       </div>
 
-      <div style={{ flex: 1, display: "grid", gridTemplateColumns: "340px 1fr", background: "#FFF", border: "1px solid #EFE4D4", borderRadius: "20px", overflow: "hidden" }}>
-        {/* Chat List */}
-        <div style={{ borderRight: "1px solid #EFE4D4", overflowY: "auto", background: "#FFFBF5" }}>
-          {conversations.map((c) => (
-            <div
-              key={c.id}
-              onClick={() => setActiveChat(c.id)}
+      {/* Search and Filters */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div style={{ position: "relative" }}>
+          <Search size={18} style={{ position: "absolute", left: "16px", top: "14px", color: "#8A4408" }} />
+          <input
+            type="text"
+            placeholder="Search by customer name, phone number, or message text..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              width: "100%",
+              boxSizing: "border-box",
+              padding: "12px 16px 12px 46px",
+              borderRadius: "14px",
+              border: "1.5px solid #E3C79C",
+              background: "#FFF",
+              fontSize: "14px",
+              outline: "none",
+            }}
+          />
+        </div>
+
+        {/* Filter Pills */}
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          {[
+            { id: "all", label: `All Inboxes (${conversations.length})` },
+            { id: "hot", label: `🔥 Booking Leads (${conversations.filter((c) => c.hot || c.contact_name?.includes("Olivia")).length})` },
+            { id: "review_gate", label: `⭐ 5★ Review Gates` },
+            { id: "human", label: `⚠️ 1★ Intercepts (Human Mode)` },
+            { id: "campaign", label: `🎁 Winback Offers` },
+            { id: "bot", label: `🤖 AI Handled (${conversations.filter((c) => c.status === "bot").length})` },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setFilter(tab.id as any)}
               style={{
-                padding: "16px",
-                borderBottom: "1px solid #EFE4D4",
+                background: filter === tab.id ? "#B4590B" : "#FFFBF5",
+                color: filter === tab.id ? "#FFF" : "#5C4A3A",
+                border: filter === tab.id ? "1.5px solid #B4590B" : "1px solid #EFE4D4",
+                padding: "7px 14px",
+                borderRadius: "999px",
+                fontSize: "12px",
+                fontWeight: 700,
                 cursor: "pointer",
-                background: activeChat === c.id ? "#FBF3E6" : "transparent",
+                transition: "all 0.15s ease",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <strong style={{ fontSize: "15px", color: "#2A1A0E" }}>{c.contactName}</strong>
-                <span style={{ fontSize: "11px", color: "#8A4408" }}>{c.time}</span>
-              </div>
-              <div style={{ fontSize: "13px", color: "#5C4A3A", marginTop: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                {c.lastMsg}
-              </div>
-              <div style={{ display: "flex", gap: "6px", marginTop: "8px", alignItems: "center" }}>
-                <span style={{
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  padding: "2px 6px",
-                  borderRadius: "4px",
-                  background: c.status === "bot" ? "#E8F5E9" : "#FFF3E0",
-                  color: c.status === "bot" ? "#1F6B45" : "#B4590B",
-                }}>
-                  {c.status === "bot" ? "AI Bot Active" : "Human Takeover"}
-                </span>
-                {c.hot && (
-                  <span style={{ fontSize: "11px", fontWeight: 700, padding: "2px 6px", borderRadius: "4px", background: "#FFEBEE", color: "#C62828" }}>
-                    🔥 Hot Lead
-                  </span>
-                )}
-              </div>
-            </div>
+              {tab.label}
+            </button>
           ))}
         </div>
+      </div>
 
-        {/* Chat Thread */}
-        <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-          {/* Header */}
-          <div style={{ padding: "16px 20px", borderBottom: "1px solid #EFE4D4", display: "flex", justifyContent: "space-between", alignItems: "center", background: "#FFF" }}>
-            <div>
-              <div style={{ fontWeight: 800, fontSize: "16px" }}>Rahul Verma (+91 98223 45678)</div>
-              <div style={{ fontSize: "12px", color: "#1F6B45", fontWeight: 600 }}>Bot answering from knowledge docs</div>
-            </div>
-            <button style={{ background: "#FFFBF5", border: "1.5px solid #E3C79C", padding: "8px 14px", borderRadius: "999px", fontSize: "13px", fontWeight: 700, color: "#8A4408", cursor: "pointer" }}>
-              Take Over Conversation
-            </button>
+      {/* Conversations List */}
+      <div style={{ background: "#FFF", border: "1px solid #EFE4D4", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 16px rgba(42,26,14,0.04)" }}>
+        {loading ? (
+          <div style={{ padding: "48px", textAlign: "center", color: "#8A7A6A", fontSize: "14px" }}>
+            Loading WhatsApp conversations...
           </div>
-
-          {/* Messages */}
-          <div style={{ flex: 1, padding: "20px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "12px", background: "#FBF3E6" }}>
-            {messages.map((m, idx) => (
+        ) : filteredConversations.length === 0 ? (
+          <div style={{ padding: "48px", textAlign: "center", color: "#8A7A6A", fontSize: "14px" }}>
+            No matching conversations found.
+          </div>
+        ) : (
+          filteredConversations.map((c, idx) => {
+            const badge = getConversationTypeBadge(c);
+            return (
               <div
-                key={idx}
+                key={c.id}
+                onClick={() => navigate(`/app/inbox/${c.id}`)}
                 style={{
-                  alignSelf: m.sender === "customer" ? "flex-start" : "flex-end",
-                  maxWidth: "70%",
-                  background: m.sender === "customer" ? "#FFF" : "#F6E7CF",
-                  border: "1px solid #EFE4D4",
-                  borderRadius: "16px",
-                  padding: "12px 16px",
+                  padding: "18px 24px",
+                  borderBottom: idx === filteredConversations.length - 1 ? "none" : "1px solid #F3EAE0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "16px",
+                  cursor: "pointer",
+                  background: "#FFF",
+                  transition: "background 0.15s ease",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#FDF8F0")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#FFF")}
               >
-                <div style={{ fontSize: "11px", fontWeight: 700, color: m.sender === "customer" ? "#5C4A3A" : "#8A4408", marginBottom: "4px" }}>
-                  {m.sender === "customer" ? "Customer" : "AI Marketing Agent"}
-                </div>
-                <div style={{ fontSize: "14px", color: "#2A1A0E", lineHeight: 1.5 }}>{m.text}</div>
-                <div style={{ fontSize: "10px", color: "#8A4408", textAlign: "right", marginTop: "4px" }}>{m.time}</div>
-              </div>
-            ))}
-          </div>
+                {/* Left: Avatar + Info */}
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      background: c.status === "human" ? "#FFF3E0" : c.hot ? "#FFEBEE" : "#F6E7CF",
+                      border: `1.5px solid ${c.status === "human" ? "#FFE0B2" : c.hot ? "#FFCDD2" : "#E3C79C"}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 800,
+                      fontSize: "17px",
+                      color: c.status === "human" ? "#BF360C" : c.hot ? "#C62828" : "#8A4408",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {c.contact_name ? c.contact_name.charAt(0).toUpperCase() : "U"}
+                  </div>
 
-          {/* Composer */}
-          <div style={{ padding: "14px 20px", borderTop: "1px solid #EFE4D4", background: "#FFF", display: "flex", gap: "10px" }}>
-            <input
-              type="text"
-              placeholder="Type message to take over or reply..."
-              value={replyText}
-              onChange={(e) => setReplyText(e.target.value)}
-              style={{ flex: 1, padding: "12px 16px", borderRadius: "999px", border: "1px solid #D9BE93", fontSize: "14px", outline: "none" }}
-            />
-            <button style={{ background: "#B4590B", color: "#FFF", border: "none", width: "42px", height: "42px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <Send size={18} />
-            </button>
-          </div>
-        </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: 1, minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                      <strong style={{ fontSize: "15px", color: "#2A1A0E" }}>{c.contact_name}</strong>
+                      <span style={{ fontSize: "12px", color: "#78614E", fontWeight: 500 }}>{c.phone}</span>
+
+                      {/* Scenario Badge */}
+                      <span
+                        style={{
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "2px 8px",
+                          borderRadius: "999px",
+                          background: badge.bg,
+                          color: badge.color,
+                          border: `1px solid ${badge.border}`,
+                        }}
+                      >
+                        {badge.label}
+                      </span>
+
+                      {/* Bot vs Human pill */}
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 700,
+                          padding: "2px 8px",
+                          borderRadius: "999px",
+                          background: c.status === "bot" ? "#E8F5E9" : "#FFF3E0",
+                          color: c.status === "bot" ? "#1F6B45" : "#BF360C",
+                        }}
+                      >
+                        {c.status === "bot" ? "AI Handled" : "Human Takeover"}
+                      </span>
+                    </div>
+
+                    <div
+                      style={{
+                        fontSize: "13px",
+                        color: "#5C4A3A",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {c.last_message || "No messages yet"}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Open Arrow */}
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#8A4408", flexShrink: 0 }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700 }}>Open Chat</span>
+                  <ChevronRight size={16} />
+                </div>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );
